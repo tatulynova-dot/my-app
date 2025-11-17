@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: background-color 0.2s;
+}
+
+.card:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* Аватар */
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Цвет текста в аватаре */
+  flex-shrink: 0;
+}
+
+/* Информация */
+.info {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Статус */
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.indicator.ready {
+  background-color: var(--text-secondary);
+}
+
+.indicator.running {
+  background-color: var(--accent-green);
+}
+
+/* Иконка */
+.icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* Дата */
+.lastRun {
+  min-width: 160px;
+  text-align: right;
+}
+
+/* Кнопки */
+.actionBtn {
+  min-width: 120px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.runBtn {
+  background-color: var(--accent-green);
+  color: white;
+}
+
+.runBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.stopBtn {
+  background-color: var(--accent-red);
+  color: white;
+}
+
+.stopBtn:hover {
+  opacity: 0.9;
+}
+
+.settingsBtn {
+  width:  40px;
+  height: 43px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.settingsBtn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

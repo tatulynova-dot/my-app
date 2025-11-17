@@ -1,0 +1,63 @@
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+/* Размеры */
+.size-small {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.size-medium {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.size-large {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.size-xlarge {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* Толщина */
+.weight-normal {
+  font-weight: 400;
+}
+
+.weight-medium {
+  font-weight: 500;
+}
+
+.weight-semibold {
+  font-weight: 600;
+}
+
+.weight-bold {
+  font-weight: 700;
+}
+
+/* Цвета */
+.color-primary {
+  color: var(--text-primary);
+}
+
+.color-secondary {
+  color: var(--text-secondary);
+}
+
+.color-accent-green {
+  color: var(--accent-green);
+}
+
+.color-accent-red {
+  color: var(--accent-red);
+}
+
+.color-accent-cyan {
+  color: var(--accent-cyan);
+}
