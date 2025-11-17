@@ -1,5 +1,10 @@
 import { Profile } from '../../types/profile';
+import { Text } from '../Text/Text';
 import styles from './ProfileCard.module.css';
+import { AppleIcon } from '../icons/AppleIcon';
+import { LinuxIcon } from '../icons/LinuxIcon';
+import { WindowsIcon } from '../icons/WindowsIcon';
+
 
 interface ProfileCardProps {
   profile: Profile;
@@ -9,37 +14,59 @@ interface ProfileCardProps {
 export const ProfileCard = ({ profile, onToggleStatus }: ProfileCardProps) => {
   const isRunning = profile.status === 'Running';
   
+  const renderOsIcon = () => {
+    switch (profile.os) {
+      case 'linux':
+        return <LinuxIcon size={20} />;
+      case 'windows':
+        return <WindowsIcon size={20} />;
+      case 'apple':
+      default:
+        return <AppleIcon size={20} />;
+    }
+  };
+  
   return (
     <div className={styles.card}>
       {/* Аватар */}
       <div className={styles.avatar}>
-        {profile.name.charAt(0).toUpperCase()}
+        <Text size="large" weight="semibold">
+          {profile.name.charAt(0).toUpperCase()}
+        </Text>
       </div>
       
       {/* Информация о профиле */}
       <div className={styles.info}>
-        <h3 className={styles.name}>{profile.name}</h3>
-        <p className={styles.folder}>{profile.folder}</p>
+        <Text size="large" weight="semibold" color="primary">
+          {profile.name}
+        </Text>
+        <Text size="medium" color="secondary">
+          {profile.folder}
+        </Text>
       </div>
       
       {/* Статус */}
       <div className={styles.statusBadge}>
         <span className={`${styles.indicator} ${isRunning ? styles.running : styles.ready}`} />
-        {profile.status}
+        <Text size="medium" color="secondary">
+          {profile.status}
+        </Text>
       </div>
       
-      {/* Иконка (заглушка) */}
+      {/* Иконка */}
       <div className={styles.icon}>
-        {profile.folder === 'JustFolder1' ? '🍎' : '📦'}
+        {renderOsIcon()}
       </div>
       
       {/* Дата */}
       <div className={styles.lastRun}>
-        Last run {profile.lastRun.toLocaleDateString('en-GB', { 
-          day: 'numeric', 
-          month: 'short', 
-          year: 'numeric' 
-        })}
+        <Text size="medium" color="secondary">
+          Last run {profile.lastRun.toLocaleDateString('en-GB', { 
+            day: 'numeric', 
+            month: 'short', 
+            year: 'numeric' 
+          })}
+        </Text>
       </div>
       
       {/* Кнопка действия */}
@@ -47,7 +74,9 @@ export const ProfileCard = ({ profile, onToggleStatus }: ProfileCardProps) => {
         className={`${styles.actionBtn} ${isRunning ? styles.stopBtn : styles.runBtn}`}
         onClick={() => onToggleStatus(profile.id)}
       >
-        {isRunning ? 'Stop' : 'Run profile'}
+        <Text size="medium" weight="medium">
+          {isRunning ? 'Stop' : 'Run profile'}
+        </Text>
       </button>
       
       {/* Кнопка настроек */}

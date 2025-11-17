@@ -1,3 +1,4 @@
+import { Text } from '../Text/Text';
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -8,7 +9,9 @@ export const Header = ({ onSearch }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.leftSection}>
-        <h1 className={styles.title}>Profiles</h1>
+        <Text size="xlarge" weight="semibold" color="primary">
+          Profiles
+        </Text>
         <div className={styles.searchWrapper}>
           <input 
             type="text" 
@@ -21,12 +24,20 @@ export const Header = ({ onSearch }: HeaderProps) => {
       
       <div className={styles.rightSection}>
         <button className={styles.createBtn}>
-          + Create new profile
+          <Text size="medium" weight="medium" color="accent-green">
+            + Create new profile
+          </Text>
         </button>
         <button className={styles.foldersBtn}>
-          📁 Folders
+          <Text size="medium" weight="normal">
+            📁 Folders
+          </Text>
         </button>
-        <div className={styles.userAvatar}>S</div>
+        <div className={styles.userAvatar}>
+          <Text size="large" weight="semibold">
+            S
+          </Text>
+        </div>
       </div>
     </header>
   );

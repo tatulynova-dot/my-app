@@ -5,6 +5,7 @@ export interface Profile {
   status: 'Ready' | 'Running';
   lastRun: Date;
   avatar?: string;
+  os?: 'apple' | 'linux' | 'windows';
 }
 
 export interface TabItem {

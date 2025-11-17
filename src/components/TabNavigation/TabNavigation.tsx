@@ -1,4 +1,5 @@
 import { TabItem, SortOption } from '../../types/profile';
+import { Text } from '../Text/Text';
 import styles from './TabNavigation.module.css';
 
 interface TabNavigationProps {
@@ -25,7 +26,9 @@ export const TabNavigation = ({
             className={`${styles.tab} ${activeTab === tab.id ? styles.active : ''}`}
             onClick={() => onTabChange(tab.id)}
           >
-            {tab.label}
+            <Text size="medium" weight="medium">
+              {tab.label}
+            </Text>
           </button>
         ))}
       </div>

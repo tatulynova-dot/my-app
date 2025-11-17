@@ -1,0 +1,20 @@
+interface IconProps {
+  size?: number;
+}
+
+export const WindowsIcon = ({ size = 20 }: IconProps) => {
+  return (
+    <svg 
+      width={size * 0.8} 
+      height={size * 0.8} 
+      viewBox="0 0 16 16" 
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path 
+        d="M0 8V2.236L6.66667 1.33267V8H0ZM7.33333 8H16V0L7.33333 1.20467V8ZM6.66667 8.66667H0V13.764L6.66667 14.6673V8.66667ZM7.33333 8.66667V14.796L16 16V8.66667H7.33333Z" 
+        fill="#77797B"
+      />
+    </svg>
+  );
+};

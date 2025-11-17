@@ -17,19 +17,23 @@
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.tab:hover {
+.tab span {
+  color: var(--text-secondary);
+}
+
+.tab:hover span {
+  color: var(--text-primary);
+}
+
+.tab.active span {
   color: var(--text-primary);
 }
 
 .tab.active {
-  color: var(--text-primary);
   border-bottom-color: var(--accent-cyan);
 }
 

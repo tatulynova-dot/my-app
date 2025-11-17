@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { mockProfiles } from './data/mockProfiles';
 import { Profile, TabItem, SortOption } from './types/profile';
-import { ProfileCard } from './components/ProfileCard/ProfileCard';
 import { Header } from './components/Header/Header';
 import { TabNavigation } from './components/TabNavigation/TabNavigation';
 import styles from './App.module.css';
+import { sortProfiles } from './utils/sortProfiles';
+import { ProfileList } from './components/ProfileList/ProfileList';
 
 const tabs: TabItem[] = [
   { id: 'all', label: 'All Profiles' },
@@ -26,23 +27,6 @@ function App() {
         : profile
     ));
   };
-  
-   // Функция сортировки
-  const sortProfiles = (profilesToSort: Profile[]) => {
-    const sorted = [...profilesToSort];
-    
-    switch (sortOption) {
-      case 'lastUpdate':
-        return sorted.sort((a, b) => b.lastRun.getTime() - a.lastRun.getTime());
-      case 'name':
-        return sorted.sort((a, b) => a.name.localeCompare(b.name));
-      case 'status':
-        return sorted.sort((a, b) => a.status.localeCompare(b.status));
-      default:
-        return sorted;
-    }
-  };
-
 
   // Фильтрация по вкладке
   const filteredByTab = activeTab === 'all' 
@@ -52,38 +36,33 @@ function App() {
         return profile.folder === activeTabData?.folder;
       });
 
+  
   // Фильтрация по поиску
   const filteredProfiles = sortProfiles(
   filteredByTab.filter(profile =>
     profile.name.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  ),
+  sortOption  
 );
 
   
   return (
-    <div className={styles.app}>
-      <Header onSearch={setSearchQuery} />
-      <TabNavigation 
-        tabs={tabs} 
-        activeTab={activeTab} 
-        onTabChange={setActiveTab}
-        sortOption={sortOption}
-        onSortChange={setSortOption}
-      />
-      
-      <div className={styles.container}>
-        <div className={styles.profilesList}>
-          {filteredProfiles.map(profile => (
-            <ProfileCard 
-              key={profile.id} 
-              profile={profile}
-              onToggleStatus={handleToggleStatus}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  <div className={styles.app}>
+    <Header onSearch={setSearchQuery} />
+    <TabNavigation 
+      tabs={tabs} 
+      activeTab={activeTab} 
+      onTabChange={setActiveTab}
+      sortOption={sortOption}
+      onSortChange={setSortOption}
+    />
+    
+    <ProfileList 
+      profiles={filteredProfiles}
+      onToggleStatus={handleToggleStatus}
+    />
+  </div>
+);
 }
 
 export default App;

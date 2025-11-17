@@ -13,13 +13,6 @@
   gap: 30px;
 }
 
-.title {
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
 .searchWrapper {
   position: relative;
 }
@@ -55,15 +48,16 @@
   background-color: transparent;
   border: 1px solid var(--accent-green);
   border-radius: 8px;
-  color: var(--accent-green);
-  font-size: 14px;
-  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .createBtn:hover {
   background-color: var(--accent-green);
+}
+
+/* При hover меняем цвет текста внутри */
+.createBtn:hover span {
   color: white;
 }
 
@@ -72,8 +66,6 @@
   background-color: transparent;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -90,8 +82,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  font-weight: 600;
   color: white;
   cursor: pointer;
 }
