@@ -1,7 +1,7 @@
 .card {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   padding: 16px 20px;
   background-color: var(--bg-card);
   border-radius: 8px;
@@ -73,6 +73,7 @@
 
 /* Кнопки */
 .actionBtn {
+  min-width: 120px;
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
@@ -101,17 +102,20 @@
 }
 
 .settingsBtn {
-  width: 36px;
-  height: 36px;
+  width:  40px;
+  height: 43px;
   border: none;
   background-color: transparent;
-  color: var(--text-secondary);
-  font-size: 18px;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
+  border-radius: 50%;
+  transition: transform 0.2s, opacity 0.2s;
   flex-shrink: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .settingsBtn:hover {
   background-color: rgba(255, 255, 255, 0.05);

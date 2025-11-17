@@ -4,6 +4,7 @@ import styles from './ProfileCard.module.css';
 import { AppleIcon } from '../icons/AppleIcon';
 import { LinuxIcon } from '../icons/LinuxIcon';
 import { WindowsIcon } from '../icons/WindowsIcon';
+import { SettingsIcon } from '../icons/SettingsIcon';
 
 
 interface ProfileCardProps {
@@ -40,7 +41,7 @@ export const ProfileCard = ({ profile, onToggleStatus }: ProfileCardProps) => {
         <Text size="large" weight="semibold" color="primary">
           {profile.name}
         </Text>
-        <Text size="medium" color="secondary">
+        <Text size="medium" color="secondary" weight="semibold"> 
           {profile.folder}
         </Text>
       </div>
@@ -48,7 +49,7 @@ export const ProfileCard = ({ profile, onToggleStatus }: ProfileCardProps) => {
       {/* Статус */}
       <div className={styles.statusBadge}>
         <span className={`${styles.indicator} ${isRunning ? styles.running : styles.ready}`} />
-        <Text size="medium" color="secondary">
+        <Text size="medium" color="secondary" weight="semibold">
           {profile.status}
         </Text>
       </div>
@@ -74,14 +75,15 @@ export const ProfileCard = ({ profile, onToggleStatus }: ProfileCardProps) => {
         className={`${styles.actionBtn} ${isRunning ? styles.stopBtn : styles.runBtn}`}
         onClick={() => onToggleStatus(profile.id)}
       >
-        <Text size="medium" weight="medium">
+        <Text size="medium" weight="semibold">
           {isRunning ? 'Stop' : 'Run profile'}
         </Text>
       </button>
       
       {/* Кнопка настроек */}
       <button className={styles.settingsBtn}>
-        ⚙️
+        <SettingsIcon size={43
+        } />
       </button>
     </div>
   );
